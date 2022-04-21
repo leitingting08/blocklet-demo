@@ -1,0 +1,40 @@
+node:
+  name: 'Blocklet Server [root]'
+  description: 'Blocklet Server on [192.168.1.5]'
+  mode: production
+  version: 1.7.7
+  sk: >-
+    U2FsdGVkX1+iTyekDRoABWHr5uEn9Wk42rfRiaVJo1x8KFpoQNULlkyT4NEnP7ZLHlRSgR+APWXldJVhPIL0w/6kKAyLVefIMQrTR+fLCw9AnLuzEqLSKkfhZU66/WrWpmcVfD4m9ARVrCMNirI/QOK7D4hUeNbxwwFT3TFiv+VOqACah+UVLtwn21jAqoJbTcvj95xwI75dt5I3NBxUAA==
+  pk: '0xf2c496792113903f3fb4a211c15f37b59b335d566ed7d539a0bce29007dfdcad'
+  did: zNKZRWcr2QBHaHtQ1mGhWY1FqGvEkTZVefwB
+  port: 8089
+  secret: '0x4701e1f767912995d68baad175eb146575bd00959594611d910f36af280ae9b9'
+  owner:
+    pk: ''
+    did: ''
+  ownerNft:
+    holder: ''
+    issuer: ''
+  routing:
+    provider: default
+    adminPath: /admin/
+    headers:
+      X-Powered-By: '"Blocklet Server/1.7.7"'
+    maxUploadFileSize: 500
+    https: true
+    httpPort: 80
+    httpsPort: 443
+    wildcardCertHost: 'https://releases.arcblock.io/'
+    ipWildcardDomain: '*.ip.abtnet.io'
+  runtimeConfig:
+    daemonMaxMemoryLimit: 800
+    proxyMaxMemoryLimit: 800
+    blockletMaxMemoryLimit: 300
+  didRegistry: 'https://registry.abtnet.io'
+  didDomain: did.abtnet.io
+  enablePassportIssuance: true
+  trustedPassports: []
+blocklet:
+  port: 8089
+initialize:
+  blocklets: []

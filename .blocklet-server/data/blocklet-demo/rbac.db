@@ -1,0 +1,6 @@
+{"name":"guest","title":"Guest","type":"role","grants":[],"_id":"UBNRMDxsIUsx30V2","createdAt":{"$$date":1650545513102},"updatedAt":{"$$date":1650545513102}}
+{"name":"member","title":"Member","type":"role","grants":[],"_id":"opkxHryf2F1QTwXy","createdAt":{"$$date":1650545513129},"updatedAt":{"$$date":1650545513129}}
+{"name":"admin","title":"Admin","type":"role","grants":[],"_id":"aV4pn9UPVMUCG9Vo","createdAt":{"$$date":1650545513145},"updatedAt":{"$$date":1650545513145}}
+{"name":"owner","title":"Owner","type":"role","grants":[],"_id":"mybfOVOwon44UexK","createdAt":{"$$date":1650545513166},"updatedAt":{"$$date":1650545513166}}
+{"name":"access_publicUrl","description":"Access resources under the publicUrl interface","extra":{"isProtected":true},"type":"permission","_id":"niGvVCZEHaKUgQeO","createdAt":{"$$date":1650545513187},"updatedAt":{"$$date":1650545513187}}
+{"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
