@@ -111,7 +111,6 @@ input:focus {
   }
 }
 
-
 .block_table {
   display: flex;
   flex-direction: row;
@@ -133,4 +132,88 @@ input:focus {
 
 .block_table div:first-child {
   width: 50%;
+}
+
+.table .lists .list {
+  padding: 1rem 0px;
+}
+
+.table .lists .item {
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.amount {
+  display: block;
+  padding: 0.25rem;
+  color: rgb(0, 135, 90);
+  background: rgb(209, 240, 219);
+  border: 1px solid rgb(209, 240, 219);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  width: fit-content !important;
+}
+
+.table .lists .item div {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+}
+
+.table .lists .item div:first-child {
+  width: 50%;
+  color: rgb(103, 113, 133);
+}
+
+.pagenation {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px 0px;
+}
+
+.pagenation .page {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 14px;
+  background: rgb(255, 255, 255);
+  color: rgb(152, 161, 178);
+  border: 1px solid rgb(223, 227, 235);
+  text-decoration: none;
+  margin-right: 0px;
+  border-radius: 0px;
+  height: 32px;
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.pagenation .page:first-child {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.pagenation .page:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.pagenation .page.active {
+  background: rgb(12, 108, 242);
+  color: rgb(255, 255, 255);
+  border-color: rgb(12, 108, 242);
+}
+
+@media (min-width: 48rem) {
+  .vertical {
+    display: flex;
+    flex-direction: row;
+  }
+  .item {
+    width: 50%;
+  }
 }

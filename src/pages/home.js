@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import Table from '../components/table';
 
 const Home = () => {
   const [searchParam, setSearchParam] = useState('');
@@ -26,7 +27,7 @@ const Home = () => {
             Timestamp: dayjs(result.time * 1000).format('YYYY-MM-DD HH:mm'),
             Height: result.height,
             Miner: (
-              <a href="/btc/address/3FZsNnE2PJfhaAeRRtsNijm9WpCv4xvkkz" className="app-link">
+              <a href="https://www.blockchain.com/btc/address/3FZsNnE2PJfhaAeRRtsNijm9WpCv4xvkkz" className="app-link">
                 Poolin
               </a>
             ),
@@ -123,6 +124,7 @@ const Home = () => {
             })}
         </>
       ) : null}
+      {data?.tx && data.tx.length && <Table title="Block Transactions" lists={data.tx} />}
     </div>
   );
 };
