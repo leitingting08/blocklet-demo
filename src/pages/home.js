@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import Table from '../components/table';
@@ -64,10 +64,6 @@ const Home = () => {
   const onSearch = () => {
     search(searchParam);
   };
-
-  useEffect(() => {
-    search('00000000000000000007878ec04bb2b2e12317804810f4c26033585b3f81ffaa');
-  }, []);
 
   return (
     <div className="app-container">
