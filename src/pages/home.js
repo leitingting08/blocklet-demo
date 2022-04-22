@@ -8,8 +8,12 @@ const Home = () => {
   const [notFound, setNotFound] = useState(false);
   const [info, setInfo] = useState(null);
   const [data, setData] = useState(null);
+  const formatMoney = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
   const search = (value) => {
     setLoading(true);
+    setNotFound(false);
     axios
       .get(`https://blockchain.info/rawblock/${value}`)
       .then((res) => {
@@ -18,21 +22,25 @@ const Home = () => {
           setData(result);
           setInfo({
             Hash: result.hash,
-            Confirmations: '',
+            Confirmations: `${formatMoney(70408)}`,
             Timestamp: dayjs(result.time * 1000).format('YYYY-MM-DD HH:mm'),
             Height: result.height,
-            Miner: '',
+            Miner: (
+              <a href="/btc/address/3FZsNnE2PJfhaAeRRtsNijm9WpCv4xvkkz" className="app-link">
+                Poolin
+              </a>
+            ),
             'Number of Transactions': result.n_tx,
-            Difficulty: '',
+            Difficulty: `${formatMoney(18670168558399.59)}`,
             'Merkle root': result.mrkl_root,
             Version: result.ver,
-            Bits: result.bits,
-            Weight: `${result.weight} WU`,
-            Size: `${result.size} bytes`,
-            Nonce: result.nonce,
-            'Transaction Volume': '',
-            'Block Reward': '',
-            'Fee Reward': `${result.fee / 1000000000} BTC`,
+            Bits: formatMoney(result.bits),
+            Weight: `${formatMoney(result.weight)} WU`,
+            Size: `${formatMoney(result.size)} bytes`,
+            Nonce: formatMoney(result.nonce),
+            'Transaction Volume': '306.51676953 BTC',
+            'Block Reward': '6.25000000 BTC',
+            'Fee Reward': `${result.fee / 100000000} BTC`,
           });
         }
       })
@@ -89,29 +97,30 @@ const Home = () => {
       {notFound && <h1>Item not found or argument invalid...</h1>}
       {data ? (
         <>
-          <h1>{data?.block_index}</h1>
-          <div>
+          <h2>{data?.block_index}</h2>
+          <p className="part">
             This block was mined on {dayjs(data.time * 1000).format('YYYY-MM-DD HH:mm')} December 22, 2020 at 3:09 PM
             GMT+8 by Poolin. It currently has 70,408 confirmations on the Bitcoin blockchain.
-          </div>
-          <div>
+          </p>
+          <p className="part">
             The miner(s) of this block earned a total reward of 6.25000000 BTC ($265,942.50). The reward consisted of a
             base reward of 6.25000000 BTC ($265,942.50) with an additional 0.16583560 BTC ($7,056.44) reward paid as
             fees of the 912 transactions which were included in the block. The Block rewards, also known as the Coinbase
             reward, were sent to this address.
-          </div>
-          <div>
+          </p>
+          <p className="part">
             A total of 306.51676953 BTC ($13,042,533.76) were sent in the block with the average transaction being
             0.33609295 BTC ($14,301.02). Learn more about how blocks work.
-          </div>
-          {Object.keys(info).map((key) => {
-            return (
-              <div className="block_table">
-                <div>{key}</div>
-                <div>{info[key]}</div>
-              </div>
-            );
-          })}
+          </p>
+          {info &&
+            Object.keys(info).map((key) => {
+              return (
+                <div className="block_table">
+                  <div>{key}</div>
+                  <div>{info[key]}</div>
+                </div>
+              );
+            })}
         </>
       ) : null}
     </div>

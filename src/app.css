@@ -3,6 +3,12 @@ body {
   padding: 0;
   margin: 0;
 }
+* {
+  text-align: left;
+}
+.part {
+  font-size: 14px;
+}
 .flex-center {
   display: flex;
   justify-content: center;
@@ -116,4 +122,15 @@ input:focus {
   width: 100%;
   padding: 0.8rem 0px;
   border-bottom: 1px solid rgb(223, 227, 235);
+}
+
+.block_table div {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+}
+
+.block_table div:first-child {
+  width: 50%;
 }
